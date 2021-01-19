@@ -1,0 +1,17 @@
+class Solution {
+         public List<String> letterCombinations(String digits) {
+        List<String> ret = new ArrayList<>();
+        if(digits.length() == 0) return ret;
+        String[] map = {"abc", "def", "ghi", "jkl", "mno", "pqrs","tuv","wxyz"};
+        dfs(digits, 0, "", map, ret);
+        return ret;
+    }    
+    public void dfs(String digits, int idx, String cur, String[] map, List<String> res) {
+        if(idx == digits.length()) {
+            res.add(cur);
+            return;
+        }       
+        for (char c : map[digits.charAt(idx) - '2'].toCharArray()) dfs(digits, idx + 1, cur + c, map, res);
+             }
+             }
+             
